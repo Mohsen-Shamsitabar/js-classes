@@ -4,23 +4,25 @@
 
 In real life, **objects** are things like: houses, cars, people, animals, or any other subjects.
 
-**objects** have ***properties***, ***methods*** and ***variables***.
+**objects** have **_properties_**, **_methods_** and **_variables_**.
 
 #### JavaScript Object Definition:
 
 - Using an Object Literal
+
 ```javascript
 // Create an Object
 const person = {
-  firstName:"John",
-  lastName:"Doe",
-  age:50,
-  eyeColor:"blue",
-  childres: []
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue",
+  childres: [],
 };
 ```
 
 - Using the `new` Keyword & Object Constructor
+
 ```javascript
 // Create an Object
 const person = new Object();
@@ -40,7 +42,6 @@ If you Understand Objects, you Understand JavaScript.
 
 In JavaScript, almost **"everything"** is an **object**:
 
-
 - Objects are objects
 - Maths are objects
 - Functions are objects
@@ -59,7 +60,6 @@ A **primitive value** is a value that has no **properties** or **methods**.
 
 JavaScript defines 7 types of primitive data types:
 
-
 - string
 - number
 - boolean
@@ -72,7 +72,7 @@ JavaScript defines 7 types of primitive data types:
 
 #### Immutable
 
-Primitive values are **immutable** (*they are hardcoded and cannot be changed*).
+Primitive values are **immutable** (_they are hardcoded and cannot be changed_).
 
 if `x = 3.14`, you can change the value of `x`, but you cannot change the value of `3.14`.
 
@@ -117,7 +117,7 @@ const person = {
   firstName: "John",
   lastName: "Doe",
   age: 50,
-  eyeColor: "blue"
+  eyeColor: "blue",
 };
 
 delete person.age;
@@ -132,20 +132,21 @@ Property values in an object can be other objects:
 
 ```javascript
 myObj = {
-  name:"John",
-  age:30,
+  name: "John",
+  age: 30,
   myCars: {
-    car1:"Ford",
-    car2:"BMW",
-    car3:"Fiat"
-  }
-}
+    car1: "Ford",
+    car2: "BMW",
+    car3: "Fiat",
+  },
+};
 ```
+
+> https://www.geeksforgeeks.org/what-is-shallow-copy-and-deep-copy-in-javascript/
 
 ---
 
 ### JavaScript Object Methods:
-
 
 **Object methods** are **actions** that can be performed on **objects**.
 
@@ -156,9 +157,9 @@ const person1 = {
   firstName: "John",
   lastName: "Doe",
   id: 5566,
-  fullName: function() {
+  fullName: function () {
     return this.firstName + " " + this.lastName;
-  }
+  },
 };
 
 // using arrow function
@@ -166,15 +167,15 @@ const person1 = {
  * arrow functions have no access to `this` keyword.
  */
 
-const sumIt = (x, y) => x + y
+const sumIt = (x, y) => x + y;
 
 const nums = {
   n: 1,
   m: 2,
-  sumIt: sumIt
-}
+  sumIt: sumIt,
+};
 
-console.log(nums.sumIt(1,2));
+console.log(nums.sumIt(1, 2));
 ```
 
 In the example above, `this` refers to the **person object**.
@@ -187,33 +188,33 @@ In the example above, `this` refers to the **person object**.
 
 ### Exercises:
 
-1. Write a program to count the number of characters (character frequency) in a string. 
-**Sample String:** `google.com`
-**Expected Result:** `{'g': 2, 'o': 3, 'l': 1, 'e': 1, '.': 1, 'c': 1, 'm': 1}`
+1. Write a program to count the number of characters (character frequency) in a string.
+   **Sample String:** `google.com`
+   **Expected Result:** `{'g': 2, 'o': 3, 'l': 1, 'e': 1, '.': 1, 'c': 1, 'm': 1}`
 
 --
 
-2. Write a program to add `'ing'` at the end of a given string 
-(length should be at least 3).
-If the given string **already** ends with `'ing'`, add `'ly'` **instead**.
-If the string length of the given string is **less than** `3`, leave it **unchanged**. 
-**Sample String:** `'abc'`
-**Expected Result:** `'abcing'`
-**Sample String:** `'string'`
-**Expected Result:** `'stringly'`
+2. Write a program to add `'ing'` at the end of a given string
+   (length should be at least 3).
+   If the given string **already** ends with `'ing'`, add `'ly'` **instead**.
+   If the string length of the given string is **less than** `3`, leave it **unchanged**.
+   **Sample String:** `'abc'`
+   **Expected Result:** `'abcing'`
+   **Sample String:** `'string'`
+   **Expected Result:** `'stringly'`
 
 --
 
-3. Write a program to get a string from a given string 
-where all occurrences of its first char have been changed to `'$'`, 
-except the first char itself. 
-**Sample String:** `'restart'`
-**Expected Result:** `'resta$t'`
+3. Write a program to get a string from a given string
+   where all occurrences of its first char have been changed to `'$'`,
+   except the first char itself.
+   **Sample String:** `'restart'`
+   **Expected Result:** `'resta$t'`
 
 --
 
-4. Write a function that takes a list of words and return the 
-longest word and the length of the longest one. 
-**Sample Input:** `[mohsen, amir, mahsa, mehdi]`
-**Longest word:** `mohsen`
-Length of the longest word: `6`
+4. Write a function that takes a list of words and return the
+   longest word and the length of the longest one.
+   **Sample Input:** `[mohsen, amir, mahsa, mehdi]`
+   **Longest word:** `mohsen`
+   Length of the longest word: `6`
