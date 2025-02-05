@@ -7,9 +7,9 @@
 ```html
 <script>
   // javascript can be written inside the script tag.
-  const name = "mohsen"
+  const name = "mohsen";
 
-  console.log(name)
+  console.log(name);
 </script>
 ```
 
@@ -46,9 +46,9 @@
 3. Using `const`
 
 ```javascript
-var a = 0
-let b = 1
-const c = 2
+var a = 0;
+let b = 1;
+const c = 2;
 ```
 
 > [Click me](https://www.w3schools.com/js/js_variables.asp) for more details.
@@ -59,8 +59,8 @@ const c = 2
 
 1. Addition: +
 2. Subtraction: -
-3. Multiplication: *
-4. Exponentiation: **
+3. Multiplication: \*
+4. Exponentiation: \*\*
 5. Division: /
 6. Modulus (Division Remainder): %
 7. Increment: ++
@@ -76,10 +76,10 @@ const mod = 3 % 2; // 1
 
 let number = 5;
 
-number++
+number++;
 console.log(number); // 6
 
-number--
+number--;
 console.log(number); // 5
 ```
 
@@ -107,23 +107,23 @@ const time = null;
 
 const person = {
   name: "mohsen",
-  age: 22
-}
+  age: 22,
+};
 
 const colorCode = {
   1: "red",
-  2: "blue"
-}
+  2: "blue",
+};
 
 const nested = {
   child: {
     a: {
-      name: "meow2"
+      name: "meow2",
     },
-    name: "meow1"
+    name: "meow1",
   },
-  name: "parent"
-}
+  name: "parent",
+};
 ```
 
 > We can check the data type using `typeof` keyword before a variable.
@@ -148,7 +148,7 @@ function printMeow() {
 const printHello = () => {
   console.log("HelloWorld");
   return;
-}
+};
 ```
 
 > More details [Here](https://www.freecodecamp.org/news/the-difference-between-arrow-functions-and-normal-functions/)
@@ -161,11 +161,11 @@ const printHello = () => {
 2. Using `switch/case`
 
 ```javascript
-let a = 10
+let a = 10;
 
-if(a > 20) {
+if (a > 20) {
   // Do something
-} else if(a === 10) {
+} else if (a === 10) {
   // Do something
 } else {
   // Do something
@@ -189,10 +189,10 @@ switch (a) {
 
 ---
 
-
 ### Loops:
 
 We have 2 types of programming: Imperetive & Declarative
+
 > More details [Here](https://dev.to/siddharthshyniben/explained-imperative-vs-declarative-programming-577g)
 
 #### Imperetive Approach:
@@ -203,11 +203,11 @@ We have 2 types of programming: Imperetive & Declarative
 4. Using `while`
 
 ```javascript
-const myNums = [1,2,3];
+const myNums = [1, 2, 3];
 const myObj = {
   name: "mohsen",
-  age: 22
-}
+  age: 22,
+};
 
 for (let i = 0; i < myNums.length; i++) {
   const num = myNums[i];
@@ -224,7 +224,7 @@ for (const item of myNums) {
   // Do something.
 }
 
-while(10 > 20) {
+while (10 > 20) {
   // Do something.
 }
 ```
@@ -233,9 +233,10 @@ while(10 > 20) {
 
 Using methods like `forEach()`, `map()`, `filter()` and more...
 Example:
+
 ```javascript
-const  myArray = [1,2,3,4]
-const  evenNums =  myArray.filter(num  =>  num %  2 ===  0)
+const myArray = [1, 2, 3, 4];
+const evenNums = myArray.filter(num => num % 2 === 0);
 ```
 
 We can use `break` and `continue` in loops, and it functions the same.
@@ -266,7 +267,7 @@ Here we will review most commonly used methods in array data type.
 7. **includes**
 8. **join**
 9. **map**
-10. **pop/push**  
+10. **pop/push**
 11. **reduce**
 12. **slice**
 13. **splice**
