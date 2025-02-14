@@ -25,7 +25,7 @@ function recursiveFunc() {
     // stops recursion if condition is met
   }
   // else recursion continues
-  recurse();
+  recursiveFunc();
 }
 ```
 
