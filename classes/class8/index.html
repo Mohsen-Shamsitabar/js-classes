@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <base href="." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../normalize.css" />
+    <link rel="stylesheet" href="../common-styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Class 8</title>
+  </head>
+
+  <body>
+    <form id="my-form">
+      <div class="field-container">
+        <label for="firstname">Firstname:</label>
+        <input type="text" name="firstname" id="firstname" value="" required />
+      </div>
+
+      <div class="field-container">
+        <label for="lastname">Lastname:</label>
+        <input type="text" name="lastname" id="lastname" value="" required />
+      </div>
+
+      <div class="field-container">
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value=""
+          required
+        />
+      </div>
+
+      <div class="field-container">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="" required />
+      </div>
+
+      <fieldset
+        id="gender-fieldset"
+        name="gender-fieldset"
+        class="field-container"
+      >
+        <legend>Gender</legend>
+
+        <div>
+          <input type="radio" name="gender" id="male" value="male" required />
+          <label for="male">Male</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="female"
+            required
+          />
+          <label for="female">Female</label>
+        </div>
+      </fieldset>
+
+      <button type="submit" disabled>Submit</button>
+
+      <div role="button" id="reset-btn">Reset</div>
+    </form>
+
+    <script type="module" src="handle-form.js"></script>
+  </body>
+</html>

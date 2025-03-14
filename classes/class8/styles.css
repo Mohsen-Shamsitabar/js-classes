@@ -1,0 +1,42 @@
+#my-form {
+  border: 4px solid black;
+  padding: 32px;
+}
+
+#my-form :last-child {
+  margin: 0;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+fieldset div {
+  margin-bottom: 8px;
+}
+
+button {
+  width: 100%;
+  cursor: pointer;
+}
+
+#reset-btn {
+  padding: 1px 4px;
+  background-color: yellow;
+  border: 1px solid black;
+  border-radius: 4px;
+
+  text-align: center;
+
+  cursor: pointer;
+}
+
+#reset-btn:hover {
+  background-color: rgb(190, 190, 0);
+}
+
+#reset-btn:active {
+  background-color: rgb(144, 144, 0);
+}
