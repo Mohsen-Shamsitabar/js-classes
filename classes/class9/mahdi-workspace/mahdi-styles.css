@@ -1,0 +1,35 @@
+#section--mahdi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid blue;
+
+  height: 250px;
+
+  transition: background-color 500ms ease;
+
+  & div {
+    color: white;
+    background-color: black;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid white;
+  }
+
+  & button {
+    margin-top: 8px;
+    cursor: pointer;
+
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 4px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: rgb(67, 67, 67);
+    }
+  }
+}
