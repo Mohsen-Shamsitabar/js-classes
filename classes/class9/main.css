@@ -1,0 +1,17 @@
+/* === MAIN STYLES === */
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+
+  background-color: whitesmoke;
+}
+
+section {
+  width: 100%;
+  background-color: white;
+}
+
+hr {
+  margin: 32px 0px;
+}
