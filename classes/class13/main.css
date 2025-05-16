@@ -1,0 +1,33 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+#show-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.sidebar {
+  transition: transform 500ms linear;
+  transform: translateX(-100%);
+
+  width: 300px;
+  height: 100%;
+  background-color: red;
+}
+
+.visible {
+  transform: none;
+}
+
+#close-btn {
+  position: relative;
+  top: 8px;
+  left: 8px;
+}
