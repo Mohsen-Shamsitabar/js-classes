@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../normalize.css" />
+    <link rel="stylesheet" href="../common-styles.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>Session 16</title>
+  </head>
+
+  <body>
+    <section id="text-container"></section>
+
+    <form id="form">
+      <label for="input">Text</label>
+
+      <input placeholder="something" id="input" name="input" type="text" />
+
+      <div id="btn-container">
+        <button class="btn" type="reset" id="reset-btn">Reset</button>
+        <button class="btn" type="submit" id="submit-btn">Add</button>
+      </div>
+    </form>
+
+    <div id="cursor"></div>
+
+    <script type="module" src="./keyboard.js"></script>
+    <script type="module" src="./mouse.js"></script>
+  </body>
+</html>
