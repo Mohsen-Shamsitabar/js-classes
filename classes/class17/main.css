@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.loading-container {
+  border: 1px solid white;
+  width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1rem 0.5rem;
+}
+
+.loading-text {
+  margin-bottom: 1rem;
+}
+
+.loading-bar {
+  width: 100%;
+  height: 1.5rem;
+
+  border: 1px solid red;
+  overflow: hidden;
+}
+
+.loading-progress {
+  position: relative;
+
+  height: 100%;
+
+  background-color: limegreen;
+
+  transition-property: width;
+  transition-duration: 500ms;
+  transition-timing-function: ease;
+}
