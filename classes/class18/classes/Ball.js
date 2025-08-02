@@ -1,3 +1,5 @@
+import Bounds from "./Bounds.js";
+
 class BallProps {
   /**
    * @type {number}
@@ -22,9 +24,8 @@ class BallProps {
 }
 
 class Ball {
-  #BALL_SPEED = 30;
-  #X_SPEED = 0;
-  #Y_SPEED = 0;
+  #BALL_SPEED = 5;
+  #velocity = [0, 0];
 
   x = 0;
   y = 0;
@@ -36,9 +37,14 @@ class Ball {
   ctx;
 
   /**
-   * @type {DOMRect}
+   * @type {Bounds}
    */
   canvasContainerBounds;
+
+  /**
+   * @type {Bounds}
+   */
+  bounds;
 
   //=== == == == ===//
 
@@ -52,18 +58,39 @@ class Ball {
     this.y = y;
     this.radius = radius;
     this.ctx = ctx;
-    this.canvasContainerBounds = canvasContainerBounds;
+    this.canvasContainerBounds = {
+      bottom: canvasContainerBounds.bottom,
+      left: canvasContainerBounds.left,
+      right: canvasContainerBounds.right,
+      top: canvasContainerBounds.top,
+    };
 
-    const xVector = Math.random() * 2 - 1;
-    const yVector = Math.random() * 2 - 1;
+    const xVelocity = Math.random() * 2 - 1;
+    const yVelocity = -Math.sqrt(1 - Math.pow(xVelocity, 2));
 
-    this.#X_SPEED = xVector * 2;
-    this.#Y_SPEED = yVector * 2;
+    this.#updateBounds();
 
-    this.drawBall();
+    this.#velocity = [
+      xVelocity * this.#BALL_SPEED,
+      yVelocity * this.#BALL_SPEED,
+    ];
   }
 
-  drawBall() {
+  #updateBounds() {
+    /**
+     * @type {Bounds}
+     */
+    const bounds = {
+      bottom: this.y + this.radius,
+      left: this.x - this.radius,
+      right: this.x + this.radius,
+      top: this.y - this.radius,
+    };
+
+    this.bounds = bounds;
+  }
+
+  draw() {
     this.ctx.fillStyle = "blue";
     this.ctx.beginPath();
     this.ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
@@ -71,23 +98,47 @@ class Ball {
     this.ctx.fillStyle = "black";
   }
 
-  // might have side effects!
-  removeBall() {
-    this.ctx.clearRect(
-      this.x - 1 - this.radius,
-      this.y - 1 - this.radius,
-      this.radius * 2 + 2,
-      this.radius * 2 + 2,
-    );
+  /**
+   * @param {Bounds} bounds
+   * @param {boolean} isScreen
+   */
+  handleCollision(bounds, isScreen) {
+    const [xVelocity, yVelocity] = this.#velocity;
+    const currentBounds = this.bounds;
+
+    if (isScreen) {
+      if (
+        currentBounds.right >= bounds.right ||
+        currentBounds.left <= bounds.left
+      ) {
+        this.#velocity = [-xVelocity, yVelocity];
+      }
+
+      if (
+        currentBounds.bottom >= bounds.bottom ||
+        currentBounds.top <= bounds.top
+      ) {
+        this.#velocity = [xVelocity, -yVelocity];
+      }
+    } else {
+      //Objects
+    }
   }
 
-  moveBall() {
-    this.removeBall();
+  update() {
+    this.handleCollision(this.canvasContainerBounds, true);
 
-    this.x += this.#X_SPEED;
-    this.y += this.#Y_SPEED;
+    const [xVelocity, yVelocity] = this.#velocity;
 
-    this.drawBall();
+    const newX = this.x + xVelocity;
+    const newY = this.y + yVelocity;
+
+    this.x = newX;
+    this.y = newY;
+
+    this.#updateBounds();
+
+    this.draw();
   }
 }
 

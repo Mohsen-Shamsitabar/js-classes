@@ -1,4 +1,5 @@
 import clamp from "../utility/clamp.js";
+import Bounds from "./Bounds.js";
 
 class PlayerProps {
   /**
@@ -44,6 +45,11 @@ class Player {
    */
   canvasContainerBounds;
 
+  /**
+   * @type {Bounds}
+   */
+  bounds;
+
   //=== == == == ===//
 
   /**
@@ -59,21 +65,30 @@ class Player {
     this.ctx = ctx;
     this.canvasContainerBounds = canvasContainerBounds;
 
-    this.drawPlayer();
+    this.#updateBounds();
 
-    this.initControls();
+    this.#initControls();
   }
 
-  drawPlayer() {
+  draw() {
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 
-  // might have side effects!
-  removePlayer() {
-    this.ctx.clearRect(this.x - 1, this.y - 1, this.width + 2, this.height + 2);
+  #updateBounds() {
+    /**
+     * @type {Bounds}
+     */
+    const bounds = {
+      bottom: this.y + this.height,
+      left: this.x,
+      right: this.x + this.width,
+      top: this.y,
+    };
+
+    this.bounds = bounds;
   }
 
-  initControls() {
+  #initControls() {
     const PLAYER_KEYS = {
       RIGHT: "d",
       LEFT: "a",
@@ -87,12 +102,12 @@ class Player {
 
       switch (key) {
         case PLAYER_KEYS.LEFT: {
-          this.moveLeft();
+          this.#moveLeft();
 
           return;
         }
         case PLAYER_KEYS.RIGHT: {
-          this.moveRight();
+          this.#moveRight();
 
           return;
         }
@@ -105,28 +120,24 @@ class Player {
     document.addEventListener("keypress", handleKeyPress);
   }
 
-  moveLeft() {
-    this.removePlayer();
-
+  #moveLeft() {
     this.x = clamp(
       0,
       this.canvasContainerBounds.width,
       this.x - this.#PLAYER_SPEED,
     );
 
-    this.drawPlayer();
+    this.#updateBounds();
   }
 
-  moveRight() {
-    this.removePlayer();
-
+  #moveRight() {
     this.x = clamp(
       0,
       this.canvasContainerBounds.width - this.width,
       this.x + this.#PLAYER_SPEED,
     );
 
-    this.drawPlayer();
+    this.#updateBounds();
   }
 }
 

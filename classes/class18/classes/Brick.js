@@ -1,3 +1,5 @@
+import Bounds from "./Bounds.js";
+
 class BlickProps {
   /**
    * @type {number}
@@ -32,6 +34,11 @@ class Blick {
    */
   ctx;
 
+  /**
+   * @type {Bounds}
+   */
+  bounds;
+
   //=== == == == ===//
 
   /**
@@ -46,18 +53,27 @@ class Blick {
     this.height = height;
     this.ctx = ctx;
 
-    this.drawBrick();
+    this.#updateBounds();
   }
 
-  drawBrick() {
+  draw() {
     this.ctx.fillStyle = "orange";
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
     this.ctx.fillStyle = "black";
   }
 
-  // might have side effects!
-  removeBlick() {
-    this.ctx.clearRect(this.x - 1, this.y - 1, this.width + 2, this.height + 2);
+  #updateBounds() {
+    /**
+     * @type {Bounds}
+     */
+    const bounds = {
+      bottom: this.y + this.height,
+      left: this.x,
+      right: this.x + this.width,
+      top: this.y,
+    };
+
+    this.bounds = bounds;
   }
 }
 
