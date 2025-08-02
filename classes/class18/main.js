@@ -30,7 +30,7 @@ import Player from "./classes/Player.js";
   const playerWidth = 150;
   const playerheight = 25;
 
-  new Player({
+  const player = new Player({
     x: containerWidth / 2 - playerWidth / 2,
     y: containerHeight - 3 * playerheight,
     width: playerWidth,
@@ -47,7 +47,7 @@ import Player from "./classes/Player.js";
     canvasContainerBounds,
   });
 
-  new Brick({
+  const brick = new Brick({
     x: 100,
     y: 100,
     width: 100,
@@ -58,7 +58,14 @@ import Player from "./classes/Player.js";
   const mainLoop = timestamp => {
     // console.log(timestamp);
 
-    ball.moveBall();
+    ctx.reset();
+
+    const playerBounds = player.bounds;
+    ball.handleCollision(playerBounds, false);
+
+    ball.update();
+    player.draw();
+    brick.draw();
 
     requestAnimationFrame(mainLoop);
   };
